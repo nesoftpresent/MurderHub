@@ -1,6 +1,6 @@
 -- MurderHub | Delta Executor
 -- Created By @MurderHubInfo (tg)
--- Version: 1.0
+-- Version: 1.2
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -69,22 +69,11 @@ local L = {
         WriteKey = "Write key here",
         Use = "Use",
         Wait = "Loading, please wait",
-        Global = "Global",
-        Murder = "Murder",
-        Sheriff = "Sheriff",
-        Innocent = "Innocent",
-        Language = "Language",
-        Credits = "Credits",
-        Speed = "Speed",
-        Noclip = "Noclip",
-        Fly = "Fly (working)",
-        FlySpeed = "Fly Speed",
-        Esp = "ESP (Use in game only!)",
-        CandyEsp = "Candy ESP (until update)",
-        InWork = "In work",
+        Global = "Global", Murder = "Murder", Sheriff = "Sheriff", Innocent = "Innocent", Language = "Language", Credits = "Credits",
+        Speed = "Speed", Noclip = "Noclip", Fly = "Fly (working)", FlySpeed = "Fly Speed",
+        Esp = "ESP (Use in game only!)", CandyEsp = "Candy ESP (until update)", InWork = "In work",
         CreatedBy = "Created By @MurderHubInfo (tg)",
-        Orange = "Orange", Cyan = "Cyan", Yellow = "Yellow",
-        Lime = "Lime", Pink = "Pink", Purple = "Purple",
+        Orange = "Orange", Cyan = "Cyan", Yellow = "Yellow", Lime = "Lime", Pink = "Pink", Purple = "Purple",
         CreditsText = "Vitya\nNesoftPresent\nInfo @MurderHubInfo (tg)",
     },
     Russia = {
@@ -92,22 +81,11 @@ local L = {
         WriteKey = "Введи ключ сюда",
         Use = "Использовать",
         Wait = "Загрузка, подождите",
-        Global = "Общее",
-        Murder = "Убийца",
-        Sheriff = "Шериф",
-        Innocent = "Невинный",
-        Language = "Язык",
-        Credits = "Создатели",
-        Speed = "Скорость",
-        Noclip = "Ноклип",
-        Fly = "Полёт (рабочий)",
-        FlySpeed = "Скорость полёта",
-        Esp = "ESP (только в игре!)",
-        CandyEsp = "ESP Конфеты (до обновления)",
-        InWork = "В процессе",
+        Global = "Общее", Murder = "Убийца", Sheriff = "Шериф", Innocent = "Невинный", Language = "Язык", Credits = "Создатели",
+        Speed = "Скорость", Noclip = "Ноклип", Fly = "Полёт (рабочий)", FlySpeed = "Скорость полёта",
+        Esp = "ESP (только в игре!)", CandyEsp = "ESP Конфеты (до обновления)", InWork = "В процессе",
         CreatedBy = "Создано @MurderHubInfo (tg)",
-        Orange = "Оранжевый", Cyan = "Голубой", Yellow = "Жёлтый",
-        Lime = "Лаймовый", Pink = "Розовый", Purple = "Фиолетовый",
+        Orange = "Оранжевый", Cyan = "Голубой", Yellow = "Жёлтый", Lime = "Лаймовый", Pink = "Розовый", Purple = "Фиолетовый",
         CreditsText = "Vitya\nNesoftPresent\nInfo @MurderHubInfo (tg)",
     },
     Spanish = {
@@ -115,22 +93,11 @@ local L = {
         WriteKey = "Escribe la clave aquí",
         Use = "Usar",
         Wait = "Cargando, por favor espera",
-        Global = "Global",
-        Murder = "Asesino",
-        Sheriff = "Alguacil",
-        Innocent = "Inocente",
-        Language = "Idioma",
-        Credits = "Créditos",
-        Speed = "Velocidad",
-        Noclip = "Noclip",
-        Fly = "Volar (funcionando)",
-        FlySpeed = "Velocidad de vuelo",
-        Esp = "ESP (¡solo en el juego!)",
-        CandyEsp = "ESP de caramelos (hasta actualización)",
-        InWork = "En progreso",
+        Global = "Global", Murder = "Asesino", Sheriff = "Alguacil", Innocent = "Inocente", Language = "Idioma", Credits = "Créditos",
+        Speed = "Velocidad", Noclip = "Noclip", Fly = "Volar (funcionando)", FlySpeed = "Velocidad de vuelo",
+        Esp = "ESP (¡solo en el juego!)", CandyEsp = "ESP de caramelos (hasta actualización)", InWork = "En progreso",
         CreatedBy = "Creado por @MurderHubInfo (tg)",
-        Orange = "Naranja", Cyan = "Cian", Yellow = "Amarillo",
-        Lime = "Lima", Pink = "Rosa", Purple = "Púrpura",
+        Orange = "Naranja", Cyan = "Cian", Yellow = "Amarillo", Lime = "Lima", Pink = "Rosa", Purple = "Púrpura",
         CreditsText = "Vitya\nNesoftPresent\nInfo @MurderHubInfo (tg)",
     },
     Chinese = {
@@ -138,22 +105,11 @@ local L = {
         WriteKey = "在此输入密钥",
         Use = "使用",
         Wait = "加载中，请稍候",
-        Global = "全局",
-        Murder = "凶手",
-        Sheriff = "警长",
-        Innocent = "无辜者",
-        Language = "语言",
-        Credits = "制作人员",
-        Speed = "速度",
-        Noclip = "穿墙",
-        Fly = "飞行 (可用)",
-        FlySpeed = "飞行速度",
-        Esp = "ESP (仅在游戏中使用!)",
-        CandyEsp = "糖果 ESP (直到更新)",
-        InWork = "进行中",
+        Global = "全局", Murder = "凶手", Sheriff = "警长", Innocent = "无辜者", Language = "语言", Credits = "制作人员",
+        Speed = "速度", Noclip = "穿墙", Fly = "飞行 (可用)", FlySpeed = "飞行速度",
+        Esp = "ESP (仅在游戏中使用!)", CandyEsp = "糖果 ESP (直到更新)", InWork = "进行中",
         CreatedBy = "由 @MurderHubInfo (tg) 创建",
-        Orange = "橙色", Cyan = "青色", Yellow = "黄色",
-        Lime = "酸橙绿", Pink = "粉色", Purple = "紫色",
+        Orange = "橙色", Cyan = "青色", Yellow = "黄色", Lime = "酸橙绿", Pink = "粉色", Purple = "紫色",
         CreditsText = "Vitya\nNesoftPresent\nInfo @MurderHubInfo (tg)",
     }
 }
@@ -164,12 +120,8 @@ end
 
 -- ========== ЦВЕТА ==========
 local COLORS = {
-    Orange = Color3.fromRGB(255, 140, 20),
-    Cyan = Color3.fromRGB(40, 230, 255),
-    Yellow = Color3.fromRGB(255, 230, 40),
-    Lime = Color3.fromRGB(160, 255, 40),
-    Pink = Color3.fromRGB(255, 100, 200),
-    Purple = Color3.fromRGB(160, 50, 255),
+    Orange = Color3.fromRGB(255, 140, 20), Cyan = Color3.fromRGB(40, 230, 255), Yellow = Color3.fromRGB(255, 230, 40),
+    Lime = Color3.fromRGB(160, 255, 40), Pink = Color3.fromRGB(255, 100, 200), Purple = Color3.fromRGB(160, 50, 255),
 }
 
 local CANDY_COLOR_ORDER = {"Orange","Cyan","Yellow","Lime","Pink","Purple"}
@@ -336,21 +288,30 @@ local function BuildKeyMenu()
             TweenService:Create(KS, TweenInfo.new(0.6), {Transparency = 1}):Play()
             task.wait(0.7)
             KeyGui:Destroy()
-            -- Вторая плавная анимация загрузки
-            local LoadFrame2 = LoadFrame:Clone()
-            LoadFrame2.Parent = ScreenGui
+            
+            -- Вторая загрузка
+            local LoadFrame2 = Instance.new("Frame")
+            LoadFrame2.Size = UDim2.new(0, 320, 0, 80)
+            LoadFrame2.Position = UDim2.new(0.5, -160, 0.5, -40)
+            LoadFrame2.BackgroundColor3 = Color3.fromRGB(10, 15, 30)
             LoadFrame2.BackgroundTransparency = 1
-            LoadFrame2:FindFirstChildOfClass("UIStroke").Transparency = 1
-            LoadFrame2:FindFirstChildOfClass("TextLabel").TextTransparency = 1
+            LoadFrame2.BorderSizePixel = 0
+            LoadFrame2.Parent = ScreenGui
+            
+            local LC2 = Instance.new("UICorner") LC2.CornerRadius = UDim.new(0, 12) LC2.Parent = LoadFrame2
+            local LS2 = Instance.new("UIStroke") LS2.Color = Color3.fromRGB(100, 150, 255) LS2.Thickness = 2 LS2.Transparency = 1 LS2.Parent = LoadFrame2
+            local LL2 = Instance.new("TextLabel") LL2.Size = UDim2.new(1,0,1,0) LL2.BackgroundTransparency = 1 LL2.Text = T("Wait") .. "..." LL2.TextColor3 = Color3.fromRGB(200, 230, 255) LL2.Font = Enum.Font.GothamBold LL2.TextSize = 20 LL2.TextTransparency = 1 LL2.Parent = LoadFrame2
+            
             TweenService:Create(LoadFrame2, TweenInfo.new(0.5), {BackgroundTransparency = 0}):Play()
-            TweenService:Create(LoadFrame2:FindFirstChildOfClass("UIStroke"), TweenInfo.new(0.5), {Transparency = 0}):Play()
-            TweenService:Create(LoadFrame2:FindFirstChildOfClass("TextLabel"), TweenInfo.new(0.5), {TextTransparency = 0}):Play()
+            TweenService:Create(LS2, TweenInfo.new(0.5), {Transparency = 0}):Play()
+            TweenService:Create(LL2, TweenInfo.new(0.5), {TextTransparency = 0}):Play()
             task.wait(2)
             TweenService:Create(LoadFrame2, TweenInfo.new(0.5), {BackgroundTransparency = 1}):Play()
-            TweenService:Create(LoadFrame2:FindFirstChildOfClass("UIStroke"), TweenInfo.new(0.5), {Transparency = 1}):Play()
-            TweenService:Create(LoadFrame2:FindFirstChildOfClass("TextLabel"), TweenInfo.new(0.5), {TextTransparency = 1}):Play()
+            TweenService:Create(LS2, TweenInfo.new(0.5), {Transparency = 1}):Play()
+            TweenService:Create(LL2, TweenInfo.new(0.5), {TextTransparency = 1}):Play()
             task.wait(0.6)
             LoadFrame2:Destroy()
+            
             BuildMainMenu()
         else
             KBStroke.Color = Color3.fromRGB(220, 30, 30)
@@ -391,7 +352,7 @@ local function ShowWaitOverlay(text, duration, callback)
     if callback then callback() end
 end
 
--- ========== NOCLIP ==========
+-- ========== NOCLIP / SPEED / FLY ==========
 local noclipConn
 local function ToggleNoclip(state)
     if noclipConn then noclipConn:Disconnect() noclipConn = nil end
@@ -408,7 +369,6 @@ local function ToggleNoclip(state)
     end)
 end
 
--- ========== SPEED ==========
 local function ApplySpeed(val)
     local char = LocalPlayer.Character
     if char and char:FindFirstChildOfClass("Humanoid") then
@@ -416,7 +376,6 @@ local function ApplySpeed(val)
     end
 end
 
--- ========== FLY (РАБОЧИЙ) ==========
 local flyConn, flyBody, flyGyro
 local function ToggleFly(state)
     if flyConn then flyConn:Disconnect() flyConn = nil end
@@ -461,35 +420,28 @@ local function ToggleFly(state)
     end
 end
 
--- ========== ESP (РОЛИ И КОНФЕТЫ) ==========
+-- ========== ESP ==========
 local espFolder = Instance.new("Folder")
 espFolder.Name = "MurderHubESP"
 espFolder.Parent = CoreGui
 
 local function GetRoleColor(plr)
-    -- Логика определения роли в MM2. 
-    -- Если игра использует скрытые атрибуты, пытаемся их прочитать.
-    local role = plr:GetAttribute("Role") or plr.Character:GetAttribute("Role") or "Innocent"
-    
-    -- Проверка по оружию в бэкпаке/руках
+    local role = "Innocent"
     if plr.Character then
         local backpack = plr:FindFirstChild("Backpack")
         local hasKnife = (plr.Character:FindFirstChild("Knife")) or (backpack and backpack:FindFirstChild("Knife"))
         local hasGun = (plr.Character:FindFirstChild("Gun")) or (backpack and backpack:FindFirstChild("Gun"))
-        
         if hasKnife then role = "Murder" end
         if hasGun then role = "Sheriff" end
     end
-
-    if role == "Murder" then return Color3.fromRGB(255, 40, 40) -- Красный
-    elseif role == "Sheriff" then return Color3.fromRGB(40, 120, 255) -- Синий
-    else return Color3.fromRGB(40, 255, 40) end -- Зеленый (Innocent)
+    if role == "Murder" then return Color3.fromRGB(255, 40, 40)
+    elseif role == "Sheriff" then return Color3.fromRGB(40, 120, 255)
+    else return Color3.fromRGB(40, 255, 40) end
 end
 
 local function RefreshESP()
     espFolder:ClearAllChildren()
     if not CONFIG.Esp then return end
-
     for _, plr in ipairs(Players:GetPlayers()) do
         if plr ~= LocalPlayer and plr.Character then
             local hl = Instance.new("Highlight")
@@ -503,15 +455,12 @@ local function RefreshESP()
     end
 end
 
--- Конфеты
 local function RefreshCandyESP()
     for _, v in ipairs(espFolder:GetChildren()) do
         if v.Name == "Candy" then v:Destroy() end
     end
     if not CONFIG.CandyEsp then return end
-    
     for _, obj in ipairs(workspace:GetDescendants()) do
-        -- Ищем по имени Candy или Candies
         if obj:IsA("BasePart") and (string.find(obj.Name:lower(), "candy") or string.find(obj.Name:lower(), "candies")) then
             local hl = Instance.new("Highlight")
             hl.Name = "Candy"
@@ -524,7 +473,6 @@ local function RefreshCandyESP()
     end
 end
 
--- Обновление при появлении персонажа/респавне
 Players.PlayerAdded:Connect(function(p)
     p.CharacterAdded:Connect(function()
         task.wait(1)
@@ -532,7 +480,6 @@ Players.PlayerAdded:Connect(function(p)
         RefreshCandyESP()
     end)
 end)
-
 -- ========== ГЛАВНОЕ МЕНЮ ==========
 function BuildMainMenu()
     local Main = Instance.new("Frame")
@@ -704,8 +651,6 @@ function BuildMainMenu()
         stateLbl.TextXAlignment = Enum.TextXAlignment.Left
         stateLbl.Parent = row
 
-        local btn = Instance.new("TextButton")
-        btn.Size
         local btn = Instance.new("TextButton")
         btn.Size = UDim2.new(0, 50, 0, 26)
         btn.Position = UDim2.new(1, -62, 0.5, -13)
@@ -968,7 +913,7 @@ function BuildMainMenu()
 
     SwitchTab("Global")
 
-    -- ========== КНОПКА ЗАКРЫТИЯ (НИНДЗЯ С КРАСНЫМ КОНТУРОМ) ==========
+    -- ========== КНОПКА ЗАКРЫТИЯ ==========
     local toggleBtn = Instance.new("ImageButton")
     toggleBtn.Name = "MurderHubToggle"
     toggleBtn.Size = UDim2.new(0, 60, 0, 60)
