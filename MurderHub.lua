@@ -1,6 +1,6 @@
 -- MurderHub | Delta Executor
 -- Created By @MurderHubInfo (tg)
--- Version: 1.2
+-- Version: Testerka 1.5
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -8,6 +8,7 @@ local UserInputService = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
 local CoreGui = game:GetService("CoreGui")
 local HttpService = game:GetService("HttpService")
+local Lighting = game:GetService("Lighting")
 
 local LocalPlayer = Players.LocalPlayer
 local Camera = workspace.CurrentCamera
@@ -23,9 +24,19 @@ local CONFIG = {
     Lang = "Russia",
     Speed = 16,
     Noclip = false,
-    Fly = false,
-    FlySpeed = 50,
-    Esp = false,
+    Fullbright = false,
+    AntiAfk = false,
+    GlobalEsp = false,
+    Xray = false,
+    MurderSpeed = false,
+    MurderNoclip = false,
+    SheriffAimbot = false,
+    SheriffNoclip = false,
+    InnocentSpeed = false,
+    InnocentNoclip = false,
+    GunEsp = false,
+    GunColor = "Orange",
+    AutoDrop = false,
     CandyEsp = false,
     CandyColor = "Orange",
 }
@@ -69,11 +80,22 @@ local L = {
         WriteKey = "Write key here",
         Use = "Use",
         Wait = "Loading, please wait",
-        Global = "Global", Murder = "Murder", Sheriff = "Sheriff", Innocent = "Innocent", Language = "Language", Credits = "Credits",
-        Speed = "Speed", Noclip = "Noclip", Fly = "Fly (working)", FlySpeed = "Fly Speed",
-        Esp = "ESP (Use in game only!)", CandyEsp = "Candy ESP (until update)", InWork = "In work",
+        Global = "Global", Murder = "Murder", Sheriff = "Sheriff", Innocent = "Innocent", Troll = "Troll", Language = "Language", Credits = "Credits",
+        Speed = "Speed (may reset)",
+        Noclip = "Noclip",
+        Fullbright = "Fullbright",
+        AntiAfk = "Anti-AFK",
+        GlobalEsp = "ESP Players",
+        Xray = "Free Xray",
+        MurderSpeed = "Free SpeedHack",
+        Aimbot = "Aimbot (bugs)",
+        InnocentSpeed = "Free SpeedHack",
+        GunEsp = "Gun ESP (bugs)",
+        AutoDrop = "Auto Drop Gun (Sheriff only, bugs)",
+        CandyEsp = "Candy ESP",
+        InWork = "In work",
         CreatedBy = "Created By @MurderHubInfo (tg)",
-        Orange = "Orange", Cyan = "Cyan", Yellow = "Yellow", Lime = "Lime", Pink = "Pink", Purple = "Purple",
+        Orange = "Orange", Cyan = "Cyan", Yellow = "Yellow", Lime = "Lime", Pink = "Pink", Purple = "Purple", Green = "Green", Red = "Red", Blue = "Blue",
         CreditsText = "Vitya\nNesoftPresent\nInfo @MurderHubInfo (tg)",
     },
     Russia = {
@@ -81,11 +103,22 @@ local L = {
         WriteKey = "Введи ключ сюда",
         Use = "Использовать",
         Wait = "Загрузка, подождите",
-        Global = "Общее", Murder = "Убийца", Sheriff = "Шериф", Innocent = "Невинный", Language = "Язык", Credits = "Создатели",
-        Speed = "Скорость", Noclip = "Ноклип", Fly = "Полёт (рабочий)", FlySpeed = "Скорость полёта",
-        Esp = "ESP (только в игре!)", CandyEsp = "ESP Конфеты (до обновления)", InWork = "В процессе",
+        Global = "Общее", Murder = "Убийца", Sheriff = "Шериф", Innocent = "Невинный", Troll = "Троллинг", Language = "Язык", Credits = "Создатели",
+        Speed = "Скорость (может ресетать)",
+        Noclip = "Ноклип",
+        Fullbright = "Яркий свет",
+        AntiAfk = "Анти-АФК",
+        GlobalEsp = "ESP Игроки",
+        Xray = "Free Xray",
+        MurderSpeed = "Free SpeedHack",
+        Aimbot = "Аимбот (баги)",
+        InnocentSpeed = "Free SpeedHack",
+        GunEsp = "ESP Пистолет (баги)",
+        AutoDrop = "Авто-дроп пушки (только шериф, баги)",
+        CandyEsp = "ESP Конфеты",
+        InWork = "В процессе",
         CreatedBy = "Создано @MurderHubInfo (tg)",
-        Orange = "Оранжевый", Cyan = "Голубой", Yellow = "Жёлтый", Lime = "Лаймовый", Pink = "Розовый", Purple = "Фиолетовый",
+        Orange = "Оранжевый", Cyan = "Голубой", Yellow = "Жёлтый", Lime = "Лаймовый", Pink = "Розовый", Purple = "Фиолетовый", Green = "Зелёный", Red = "Красный", Blue = "Синий",
         CreditsText = "Vitya\nNesoftPresent\nInfo @MurderHubInfo (tg)",
     },
     Spanish = {
@@ -93,11 +126,22 @@ local L = {
         WriteKey = "Escribe la clave aquí",
         Use = "Usar",
         Wait = "Cargando, por favor espera",
-        Global = "Global", Murder = "Asesino", Sheriff = "Alguacil", Innocent = "Inocente", Language = "Idioma", Credits = "Créditos",
-        Speed = "Velocidad", Noclip = "Noclip", Fly = "Volar (funcionando)", FlySpeed = "Velocidad de vuelo",
-        Esp = "ESP (¡solo en el juego!)", CandyEsp = "ESP de caramelos (hasta actualización)", InWork = "En progreso",
+        Global = "Global", Murder = "Asesino", Sheriff = "Alguacil", Innocent = "Inocente", Troll = "Troll", Language = "Idioma", Credits = "Créditos",
+        Speed = "Velocidad (puede reiniciarse)",
+        Noclip = "Noclip",
+        Fullbright = "Luz brillante",
+        AntiAfk = "Anti-AFK",
+        GlobalEsp = "ESP Jugadores",
+        Xray = "Free Xray",
+        MurderSpeed = "Free SpeedHack",
+        Aimbot = "Aimbot (errores)",
+        InnocentSpeed = "Free SpeedHack",
+        GunEsp = "ESP Pistola (errores)",
+        AutoDrop = "Soltar pistola (solo Alguacil, errores)",
+        CandyEsp = "ESP Caramelos",
+        InWork = "En progreso",
         CreatedBy = "Creado por @MurderHubInfo (tg)",
-        Orange = "Naranja", Cyan = "Cian", Yellow = "Amarillo", Lime = "Lima", Pink = "Rosa", Purple = "Púrpura",
+        Orange = "Naranja", Cyan = "Cian", Yellow = "Amarillo", Lime = "Lima", Pink = "Rosa", Purple = "Púrpura", Green = "Verde", Red = "Rojo", Blue = "Azul",
         CreditsText = "Vitya\nNesoftPresent\nInfo @MurderHubInfo (tg)",
     },
     Chinese = {
@@ -105,11 +149,22 @@ local L = {
         WriteKey = "在此输入密钥",
         Use = "使用",
         Wait = "加载中，请稍候",
-        Global = "全局", Murder = "凶手", Sheriff = "警长", Innocent = "无辜者", Language = "语言", Credits = "制作人员",
-        Speed = "速度", Noclip = "穿墙", Fly = "飞行 (可用)", FlySpeed = "飞行速度",
-        Esp = "ESP (仅在游戏中使用!)", CandyEsp = "糖果 ESP (直到更新)", InWork = "进行中",
+        Global = "全局", Murder = "凶手", Sheriff = "警长", Innocent = "无辜者", Troll = "捣乱", Language = "语言", Credits = "制作人员",
+        Speed = "速度 (可能会重置)",
+        Noclip = "穿墙",
+        Fullbright = "全亮",
+        AntiAfk = "防挂机",
+        GlobalEsp = "ESP 玩家",
+        Xray = "Free Xray",
+        MurderSpeed = "Free SpeedHack",
+        Aimbot = "自瞄 (错误)",
+        InnocentSpeed = "Free SpeedHack",
+        GunEsp = "ESP 枪 (错误)",
+        AutoDrop = "自动掉落枪 (仅警长, 错误)",
+        CandyEsp = "ESP 糖果",
+        InWork = "进行中",
         CreatedBy = "由 @MurderHubInfo (tg) 创建",
-        Orange = "橙色", Cyan = "青色", Yellow = "黄色", Lime = "酸橙绿", Pink = "粉色", Purple = "紫色",
+        Orange = "橙色", Cyan = "青色", Yellow = "黄色", Lime = "酸橙绿", Pink = "粉色", Purple = "紫色", Green = "绿色", Red = "红色", Blue = "蓝色",
         CreditsText = "Vitya\nNesoftPresent\nInfo @MurderHubInfo (tg)",
     }
 }
@@ -122,9 +177,10 @@ end
 local COLORS = {
     Orange = Color3.fromRGB(255, 140, 20), Cyan = Color3.fromRGB(40, 230, 255), Yellow = Color3.fromRGB(255, 230, 40),
     Lime = Color3.fromRGB(160, 255, 40), Pink = Color3.fromRGB(255, 100, 200), Purple = Color3.fromRGB(160, 50, 255),
+    Green = Color3.fromRGB(40, 255, 40), Red = Color3.fromRGB(255, 40, 40), Blue = Color3.fromRGB(40, 120, 255),
 }
 
-local CANDY_COLOR_ORDER = {"Orange","Cyan","Yellow","Lime","Pink","Purple"}
+local COLOR_ORDER = {"Orange","Cyan","Yellow","Lime","Pink","Purple","Green","Red","Blue"}
 
 -- ========== GUI ==========
 local ScreenGui = Instance.new("ScreenGui")
@@ -352,7 +408,7 @@ local function ShowWaitOverlay(text, duration, callback)
     if callback then callback() end
 end
 
--- ========== NOCLIP / SPEED / FLY ==========
+-- ========== NOCLIP / SPEED / FULLBRIGHT / ANTIAFK ==========
 local noclipConn
 local function ToggleNoclip(state)
     if noclipConn then noclipConn:Disconnect() noclipConn = nil end
@@ -376,48 +432,30 @@ local function ApplySpeed(val)
     end
 end
 
-local flyConn, flyBody, flyGyro
-local function ToggleFly(state)
-    if flyConn then flyConn:Disconnect() flyConn = nil end
-    if flyBody then flyBody:Destroy() flyBody = nil end
-    if flyGyro then flyGyro:Destroy() flyGyro = nil end
-
-    local char = LocalPlayer.Character
-    if not char then return end
-    local hrp = char:FindFirstChild("HumanoidRootPart")
-    if not hrp then return end
-
+local defaultBrightness = Lighting.Brightness
+local defaultAmbient = Lighting.Ambient
+local defaultOutdoor = Lighting.OutdoorAmbient
+local function ToggleFullbright(state)
     if state then
-        flyBody = Instance.new("BodyVelocity")
-        flyBody.MaxForce = Vector3.new(1e5, 1e5, 1e5)
-        flyBody.Velocity = Vector3.zero
-        flyBody.Parent = hrp
-
-        flyGyro = Instance.new("BodyGyro")
-        flyGyro.MaxTorque = Vector3.new(1e5, 1e5, 1e5)
-        flyGyro.P = 1000
-        flyGyro.D = 50
-        flyGyro.CFrame = hrp.CFrame
-        flyGyro.Parent = hrp
-
-        flyConn = RunService.RenderStepped:Connect(function()
-            if not char.Parent then return end
-            local dir = Vector3.zero
-            if UserInputService:IsKeyDown(Enum.KeyCode.W) then dir += Camera.CFrame.LookVector end
-            if UserInputService:IsKeyDown(Enum.KeyCode.S) then dir -= Camera.CFrame.LookVector end
-            if UserInputService:IsKeyDown(Enum.KeyCode.A) then dir -= Camera.CFrame.RightVector end
-            if UserInputService:IsKeyDown(Enum.KeyCode.D) then dir += Camera.CFrame.RightVector end
-            if UserInputService:IsKeyDown(Enum.KeyCode.Space) then dir += Vector3.new(0,1,0) end
-            if UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then dir -= Vector3.new(0,1,0) end
-
-            if dir.Magnitude > 0 then
-                flyBody.Velocity = dir.Unit * CONFIG.FlySpeed
-            else
-                flyBody.Velocity = Vector3.zero
-            end
-            flyGyro.CFrame = Camera.CFrame
-        end)
+        Lighting.Brightness = 3
+        Lighting.Ambient = Color3.fromRGB(255, 255, 255)
+        Lighting.OutdoorAmbient = Color3.fromRGB(255, 255, 255)
+    else
+        Lighting.Brightness = defaultBrightness
+        Lighting.Ambient = defaultAmbient
+        Lighting.OutdoorAmbient = defaultOutdoor
     end
+end
+
+local antiAfkConn
+local function ToggleAntiAfk(state)
+    if antiAfkConn then antiAfkConn:Disconnect() antiAfkConn = nil end
+    if not state then return end
+    antiAfkConn = LocalPlayer.Idled:Connect(function()
+        local VirtualUser = game:GetService("VirtualUser")
+        VirtualUser:CaptureController()
+        VirtualUser:ClickButton2(Vector2.new())
+    end)
 end
 
 -- ========== ESP ==========
@@ -440,13 +478,20 @@ local function GetRoleColor(plr)
 end
 
 local function RefreshESP()
-    espFolder:ClearAllChildren()
-    if not CONFIG.Esp then return end
+    for _, v in ipairs(espFolder:GetChildren()) do
+        if v.Name ~= "Candy" and v.Name ~= "Gun" then v:Destroy() end
+    end
+    if not CONFIG.GlobalEsp and not CONFIG.Xray then return end
+    
     for _, plr in ipairs(Players:GetPlayers()) do
         if plr ~= LocalPlayer and plr.Character then
             local hl = Instance.new("Highlight")
             hl.Name = plr.Name
-            hl.FillColor = GetRoleColor(plr)
+            if CONFIG.Xray then
+                hl.FillColor = Color3.fromRGB(255, 255, 0)
+            else
+                hl.FillColor = GetRoleColor(plr)
+            end
             hl.OutlineColor = Color3.fromRGB(255, 255, 255)
             hl.FillTransparency = 0.5
             hl.Adornee = plr.Character
@@ -473,13 +518,85 @@ local function RefreshCandyESP()
     end
 end
 
+local function RefreshGunESP()
+    for _, v in ipairs(espFolder:GetChildren()) do
+        if v.Name == "Gun" then v:Destroy() end
+    end
+    if not CONFIG.GunEsp then return end
+    for _, obj in ipairs(workspace:GetDescendants()) do
+        if obj:IsA("BasePart") and string.find(obj.Name:lower(), "gun") then
+            local hl = Instance.new("Highlight")
+            hl.Name = "Gun"
+            hl.FillColor = COLORS[CONFIG.GunColor]
+            hl.OutlineColor = Color3.fromRGB(255, 255, 255)
+            hl.FillTransparency = 0.5
+            hl.Adornee = obj
+            hl.Parent = espFolder
+        end
+    end
+end
+
 Players.PlayerAdded:Connect(function(p)
     p.CharacterAdded:Connect(function()
         task.wait(1)
         RefreshESP()
         RefreshCandyESP()
+        RefreshGunESP()
     end)
 end)
+-- ========== COMBAT / AIMBOT / AUTODROP ==========
+local aimbotConn = nil
+local function ToggleAimbot(state)
+    if aimbotConn then aimbotConn:Disconnect() aimbotConn = nil end
+    if not state then return end
+    aimbotConn = RunService.RenderStepped:Connect(function()
+        local char = LocalPlayer.Character
+        if not char then return end
+        local gun = char:FindFirstChild("Gun") or (char:FindFirstChildOfClass("Tool") and char:FindFirstChildOfClass("Tool").Name == "Gun")
+        
+        if gun then
+            local closest, dist = nil, 500
+            for _, p in ipairs(Players:GetPlayers()) do
+                if p ~= LocalPlayer and p.Character then
+                    local hrp = p.Character:FindFirstChild("HumanoidRootPart")
+                    local hum = p.Character:FindFirstChildOfClass("Humanoid")
+                    if hrp and hum and hum.Health > 0 then
+                        -- Пытаемся определить убийцу
+                        local bp = p:FindFirstChild("Backpack")
+                        local isMurder = (p.Character:FindFirstChild("Knife")) or (bp and bp:FindFirstChild("Knife"))
+                        if isMurder then
+                            local d = (hrp.Position - Camera.CFrame.Position).Magnitude
+                            if d < dist then dist = d closest = p end
+                        end
+                    end
+                end
+            end
+            if closest and closest.Character then
+                local targetHrp = closest.Character:FindFirstChild("HumanoidRootPart")
+                if targetHrp then
+                    Camera.CFrame = CFrame.new(Camera.CFrame.Position, targetHrp.Position)
+                end
+            end
+        end
+    end)
+end
+
+local autoDropConn = nil
+local function ToggleAutoDrop(state)
+    if autoDropConn then autoDropConn:Disconnect() autoDropConn = nil end
+    if not state then return end
+    autoDropConn = RunService.Heartbeat:Connect(function()
+        local char = LocalPlayer.Character
+        if not char then return end
+        local gun = char:FindFirstChild("Gun")
+        if gun then
+            pcall(function()
+                gun.Parent = workspace
+            end)
+        end
+    end)
+end
+
 -- ========== ГЛАВНОЕ МЕНЮ ==========
 function BuildMainMenu()
     local Main = Instance.new("Frame")
@@ -546,8 +663,20 @@ function BuildMainMenu()
     HSub.TextTransparency = 1
     HSub.Parent = Header
 
+    -- Версия
+    local VersionLbl = Instance.new("TextLabel")
+    VersionLbl.Size = UDim2.new(1, -20, 0, 20)
+    VersionLbl.Position = UDim2.new(0, 20, 1, -30)
+    VersionLbl.BackgroundTransparency = 1
+    VersionLbl.Text = "Testerka 1.5"
+    VersionLbl.TextColor3 = Color3.fromRGB(100, 130, 180)
+    VersionLbl.Font = Enum.Font.Gotham
+    VersionLbl.TextSize = 12
+    VersionLbl.TextXAlignment = Enum.TextXAlignment.Left
+    VersionLbl.Parent = Main
+
     local Sidebar = Instance.new("Frame")
-    Sidebar.Size = UDim2.new(0, 160, 1, -84)
+    Sidebar.Size = UDim2.new(0, 160, 1, -100)
     Sidebar.Position = UDim2.new(0, 10, 0, 74)
     Sidebar.BackgroundColor3 = Color3.fromRGB(15, 25, 50)
     Sidebar.BackgroundTransparency = 1
@@ -570,7 +699,7 @@ function BuildMainMenu()
     SPad.Parent = Sidebar
 
     local Content = Instance.new("Frame")
-    Content.Size = UDim2.new(1, -190, 1, -84)
+    Content.Size = UDim2.new(1, -190, 1, -100)
     Content.Position = UDim2.new(0, 180, 0, 74)
     Content.BackgroundColor3 = Color3.fromRGB(15, 25, 50)
     Content.BackgroundTransparency = 1
@@ -756,7 +885,7 @@ function BuildMainMenu()
         gl.SortOrder = Enum.SortOrder.LayoutOrder
         gl.Parent = grid
 
-        for i, cname in ipairs(CANDY_COLOR_ORDER) do
+        for i, cname in ipairs(COLOR_ORDER) do
             local sq = Instance.new("TextButton")
             sq.Size = UDim2.new(0, 22, 0, 22)
             sq.BackgroundColor3 = COLORS[cname]
@@ -794,39 +923,43 @@ function BuildMainMenu()
         ClearContent()
         MakeInput(Scroll, T("Speed") .. " (1-100)", CONFIG.Speed, 1, 100, function(v) CONFIG.Speed = v ApplySpeed(v) end)
         MakeToggle(Scroll, T("Noclip"), CONFIG.Noclip, function(s) CONFIG.Noclip = s ToggleNoclip(s) end)
-        MakeToggle(Scroll, T("Fly"), CONFIG.Fly, function(s) CONFIG.Fly = s ToggleFly(s) end)
-        MakeInput(Scroll, T("FlySpeed"), CONFIG.FlySpeed, 10, 200, function(v) CONFIG.FlySpeed = v end)
-        MakeToggle(Scroll, T("Esp"), CONFIG.Esp, function(s) CONFIG.Esp = s RefreshESP() end)
+        MakeToggle(Scroll, T("Fullbright"), CONFIG.Fullbright, function(s) CONFIG.Fullbright = s ToggleFullbright(s) end)
+        MakeToggle(Scroll, T("AntiAfk"), CONFIG.AntiAfk, function(s) CONFIG.AntiAfk = s ToggleAntiAfk(s) end)
+        MakeToggle(Scroll, T("GlobalEsp"), CONFIG.GlobalEsp, function(s) CONFIG.GlobalEsp = s RefreshESP() end)
     end
 
     local function BuildMurder()
         ClearContent()
-        local lbl = Instance.new("TextLabel")
-        lbl.Size = UDim2.new(1, 0, 1, 0)
-        lbl.BackgroundTransparency = 1
-        lbl.Text = T("InWork")
-        lbl.TextColor3 = Color3.fromRGB(100, 150, 255)
-        lbl.Font = Enum.Font.GothamBold
-        lbl.TextSize = 22
-        lbl.Parent = Scroll
+        MakeToggle(Scroll, T("Xray"), CONFIG.Xray, function(s) CONFIG.Xray = s RefreshESP() end)
+        MakeToggle(Scroll, T("MurderSpeed"), CONFIG.MurderSpeed, function(s) 
+            CONFIG.MurderSpeed = s 
+            if s then ApplySpeed(25) else ApplySpeed(CONFIG.Speed) end 
+        end)
+        MakeToggle(Scroll, T("Noclip"), CONFIG.MurderNoclip, function(s) CONFIG.MurderNoclip = s ToggleNoclip(s) end)
     end
 
     local function BuildSheriff()
         ClearContent()
-        local lbl = Instance.new("TextLabel")
-        lbl.Size = UDim2.new(1, 0, 1, 0)
-        lbl.BackgroundTransparency = 1
-        lbl.Text = T("InWork")
-        lbl.TextColor3 = Color3.fromRGB(100, 150, 255)
-        lbl.Font = Enum.Font.GothamBold
-        lbl.TextSize = 22
-        lbl.Parent = Scroll
+        MakeToggle(Scroll, T("Aimbot"), CONFIG.SheriffAimbot, function(s) CONFIG.SheriffAimbot = s ToggleAimbot(s) end)
+        MakeToggle(Scroll, T("Noclip"), CONFIG.SheriffNoclip, function(s) CONFIG.SheriffNoclip = s ToggleNoclip(s) end)
     end
 
     local function BuildInnocent()
         ClearContent()
+        MakeToggle(Scroll, T("InnocentSpeed"), CONFIG.InnocentSpeed, function(s) 
+            CONFIG.InnocentSpeed = s 
+            if s then ApplySpeed(25) else ApplySpeed(CONFIG.Speed) end 
+        end)
+        MakeToggle(Scroll, T("Noclip"), CONFIG.InnocentNoclip, function(s) CONFIG.InnocentNoclip = s ToggleNoclip(s) end)
+        MakeToggle(Scroll, T("GunEsp"), CONFIG.GunEsp, function(s) CONFIG.GunEsp = s RefreshGunESP() end)
+        MakeColorRow(Scroll, "Gun Color", CONFIG.GunColor, function(c) CONFIG.GunColor = c RefreshGunESP() end)
         MakeToggle(Scroll, T("CandyEsp"), CONFIG.CandyEsp, function(s) CONFIG.CandyEsp = s RefreshCandyESP() end)
         MakeColorRow(Scroll, "Candy Color", CONFIG.CandyColor, function(c) CONFIG.CandyColor = c RefreshCandyESP() end)
+    end
+
+    local function BuildTroll()
+        ClearContent()
+        MakeToggle(Scroll, T("AutoDrop"), CONFIG.AutoDrop, function(s) CONFIG.AutoDrop = s ToggleAutoDrop(s) end)
     end
 
     local function BuildLanguage()
@@ -883,6 +1016,7 @@ function BuildMainMenu()
         elseif tabName == "Murder" then BuildMurder()
         elseif tabName == "Sheriff" then BuildSheriff()
         elseif tabName == "Innocent" then BuildInnocent()
+        elseif tabName == "Troll" then BuildTroll()
         elseif tabName == "Language" then BuildLanguage()
         elseif tabName == "Credits" then BuildCredits()
         end
@@ -908,6 +1042,7 @@ function BuildMainMenu()
     MakeTab(T("Murder"), "Murder")
     MakeTab(T("Sheriff"), "Sheriff")
     MakeTab(T("Innocent"), "Innocent")
+    MakeTab(T("Troll"), "Troll")
     MakeTab(T("Language"), "Language")
     MakeTab(T("Credits"), "Credits")
 
@@ -943,10 +1078,14 @@ function BuildMainMenu()
 
     task.spawn(function()
         if CONFIG.Noclip then ToggleNoclip(true) end
-        if CONFIG.Fly then ToggleFly(true) end
+        if CONFIG.Fullbright then ToggleFullbright(true) end
+        if CONFIG.AntiAfk then ToggleAntiAfk(true) end
+        if CONFIG.SheriffAimbot then ToggleAimbot(true) end
+        if CONFIG.AutoDrop then ToggleAutoDrop(true) end
         ApplySpeed(CONFIG.Speed)
         RefreshESP()
         RefreshCandyESP()
+        RefreshGunESP()
     end)
 end
 
